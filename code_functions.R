@@ -1,6 +1,3 @@
-install.packages('deSolve')
-library('deSolve')
-
 SIR<-function(t,x,para){
 # TAILLE DE CHAQUE COMPARTEMENT 
   S<-x[1]
