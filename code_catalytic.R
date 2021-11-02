@@ -1,0 +1,45 @@
+#install.packages('splines')
+install.packages('fields')
+
+#library('splines')
+library('fields')
+
+# FoI = FORCE DE L'INFECTION 
+# ELLE CORRESPOND AU TAUX PER CAPITA AUQUEL LES SUSCEPTIBLES SONT EXPOSES A L'INFECTION
+# DANS LE MODEL PLUS SIMPLE FoI EST INDEPENDENATE DE L'AGE E DU TEMPS 
+# DANS CE CAS, LA PROBABILITE D'ETRE INFECTE A L'AGE a EST 
+# 1-exp(-phi(a)
+# SI ON CONNAIT LE NOMBRE DES SUJETS INFECTES EN FONCTION DE L'AGE NOUS POUVONS ESTIMER LA FORCE DE
+# L'INFECTION PAR UN MODELE LINEAIRE GENERALISE (glm)
+
+# LES glm ONT DEUX COMPOSTANTES 
+# UNE DISTRIBUTION DE L'ERREUR (QUI PEUT ETRE 'BIONMIAL', 'POISSON', 'NEGATIVE BINOMIAL', 'NORMAL')
+# ET UNE FONCTION QUI SPECIFIE COMMENT LES VALEURS ATTENDUES (PREDITES) SONT LIEES AU VALEURS PREDITES 
+# LINEAIRES x = a + b1x1 + b2x2 + ... 
+
+glm(cbing(inf, noninf) ~ offset(log(a)), family=binomial(link="cloglog"))
+
+# LA FONCTION POUR UNE POPULATION nA SUJETS, D'AGE a
+# LA DISTRIBUTION (SIMPLE) QU'ON CHOISIT EST BIEN LA BINOMIALE 
+
+# ON REPREND L'EXEMPLE DE LA ROUGEOLE MAIS SUR UNE AUTRE BASE DE DONNEES
+
+data(black)
+black
+# f EST LA SEROPREVALENCE 
+# ELLE EST TRES ELEVEE CHEZ LES PETITS - GRACE AUX ANTICORPS DE LA MERE
+# ET REDEVIENT MAXIMALE AUTOURS DE 20 ANS
+
+# CREATION DES GROUPES EN FONCITION DE L'AGE
+b2=black[-c(1,8,9)]
+fit = glm(cbind(pos, neg) ~ offset(log(mid)), family = binomial(link = 'cloglog'), data = b2)
+
+phi = exp(coef(fit))
+curve(1-exp(-phi*x), from=0, to=60, ylab='seroprev', xlab='age')
+points(black$mid, black$f, pch='*', col='black')
+points(b2$mid, b2$f, pch=8)
+exp(fit$coef)
+
+# FoI
+# (Intercept) 
+# 0.1116066 
