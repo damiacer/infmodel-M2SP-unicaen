@@ -52,7 +52,7 @@ Les fonctions *ODE* résolvent les équations numériquement.
 
 #### étapes 2-4 : time points
 
-Nous définissons à quel intervalle de temps le *ODE* enregistrent l'état du système. Dans l'exemple, nous utilisons le temps de 26 semaines, avec un pas de 10. La valeur des paramètres est définie par le vecteur *parms* et les conditions au début de l'épidémie.\
+Nous définissons à quel intervalle de temps les *ODE* enregistrent l'état du système. Dans l'exemple, nous utilisons le temps de 26 semaines, avec un pas de 10. La valeur des paramètres est définie par le vecteur *parms* et les conditions au début de l'épidémie.\
 Pour cet exemple, nous considérons : 
 
 * $N=1$, la fraction de sujets dans chaque classe
