@@ -193,22 +193,22 @@ Interprétation de l'image : l'approximation est valable pour $R_0>2.5$ mais sur
 
 ## R0
 
-Pour les maladies transmissibles directement, $R_0$ est défini comme le nombre de cas secondaires qui dérivent d'un cas *index* dans une population susceptible.\ 
+Pour les maladies transmissibles directement, $R_0$ est défini comme le nombre de cas secondaires qui dérivent d'un cas *index* dans une population susceptible.
 $R_0$ joue un rôle fondamental dans différents aspects de la dynamique de la maladie. Pour des pathogènes responsables d'une immunisation parfaite : 
 
-* Le seuil nécessaire afin que le pathogène puisse déclencher la maladie. Quand $R_0>1$, un pathogène peut être infecter. Quand $R_0<1$, la chaine de transmission ralenti et interrompue [^6]. Ce seuil peut être associé au *critical host density* ;
+* Le seuil nécessaire afin que le pathogène puisse déclencher la maladie. Quand $R_0>1$, un pathogène peut infecter. Quand $R_0<1$, la chaine de transmission ralenti et interrompue [^6]. Ce seuil peut être associé au *critical host density* ;
 * Le seuil nécessaire afin que le vaccin puisse induire la *herd immunity*. Ce seuil est calculé comme $p_c = 1-1/R_0$. Dans le cas de la *rougeole*, $R_0=20$ : il est indispensable vacciner 95% de la population pour éliminer la maladie. 
 
 [^6]: Lloyd-Smith, 2009
 
 ### Estimation de R0 pour une épidémie simple
 
-Une large variété de méthodes a été proposée pour estimes $R_0$ (ou le *effective reproductive ratio* $R_E$[^7][^8]). Certaines méthodes sont fondées exclusivement sur des modèles.\
+Une large variété de méthodes a été proposée pour estimes $R_0$ (ou le *effective reproductive ratio* $R_E$[^7][^8]). Certaines méthodes sont fondées exclusivement sur des modèles.
 
-L'hypothèse la plus simple est d'estimer que, pendant la première phase de diffusion d'un pathogène, la réduction de la fraction susceptible est négligeable et que, conséquemment, la croissance de l'épidémie puisse être considérée **exponentielle**. Le taux de croissance exponentielle peut être traduit par $r=log(R_0)/G$, où $G$ représente le temps-génération. Cela nous permet de calculer $R_0=exp(rG)$.\
-La croissance exponentielle d'une population peut être calculée par $N(t) = N(0)exp(rt)$. Le temps nécessaire pour doubler sa taille est $log(2)/r$.\
+L'hypothèse la plus simple est d'estimer que, pendant la première phase de diffusion d'un pathogène, la réduction de la fraction susceptible est négligeable et que, conséquemment, la croissance de l'épidémie puisse être considérée **exponentielle**. Le taux de croissance exponentielle peut être traduit par $r=log(R_0)/G$, où $G$ représente le temps-génération. Cela nous permet de calculer $R_0=exp(rG)$.
+La croissance exponentielle d'une population peut être calculée par $N(t) = N(0)exp(rt)$. Le temps nécessaire pour doubler sa taille est $log(2)/r$.
 
-Nous pouvons appliquer ces formules à la phase précoce d'une épidémie.\
+Nous pouvons appliquer ces formules à la phase précoce d'une épidémie.
 $N$ représente la *prévalence* et $G$ l'intérvalle sérial ($V$), le temps moyen entre infection et reinfection. Le taux de croissance de l'*incidence* (plus souvent represéntée dans les données ou les résultat) est toujour exponentiel. Pour calculer $R_0$, nous pouvons régresser *log(incidence cumulée) sur le temps* (calcul du taux de croissance exponentielle ($r$)) et, ensuite, $R_0 = Vr +1$ [^9].  
 
 [^7]: $R_E$ le nombre effectif de cas dans une population partiellement immunisé :  $R_E = s \times R_0$.
@@ -251,7 +251,7 @@ legend("topleft", legend = c("Cases", "Cumulative"),
   lty = c(1,1), pch = c(1,NA), col = c("black", "red"))
 ````
 
-L'incidence cumulée semble être log-linéaire pendant la première phase de l'épidémie.\
+L'incidence cumulée semble être log-linéaire pendant la première phase de l'épidémie.
 L'intervalle serial pour la rougeole est de 10-12 jours et, étant les données renseignées chaque semaine, $V=1.5-1.8$ semaines. Nous pouvons calculer le $R_0$[^12] en utilisant l'intervalle de 1.5-1.8 : 
 
 [^12]: Dans ce calcul, nous allons appliquer la transformation logarithmique, car l'incidence cumulée est estimée être exponentielle - et, donc, le modèle de régression logistique ne peut pas être appliqué. 
@@ -262,9 +262,7 @@ r = fit$coef["absweek"]
 V = c(1.5, 1.8)
 R0.rugeole = V * r + 1
 ```` 
-En tenant en compte le fait que le pays (Niger) a mis en place plusieurs campagnes de vaccination, le $R_0$ retrouvé corréspond à une estimation du taux de reproduction *effectif*, $R_E$. \
-\
-
+En tenant en compte le fait que le pays (Niger) a mis en place plusieurs campagnes de vaccination, le $R_0$ retrouvé corréspond à une estimation du taux de reproduction *effectif*, $R_E$. 
 
 Lipsitch[^13], en utilisant les données SARS, a montré qu'il faut distinger les périodes de contagiosité et latente : $R = Vr +1 + f(1-f)(Vr)^2$.
 
@@ -287,7 +285,8 @@ names(flu)
 head(flu)
 `````
 
-La durée typique de la maladie est de 5-7 jours.\ Nous pouvons tracer le plot de ces données. Il faut remarque que les cas sont définis comme sujet en isolement par jour : il s'agit donc d'une mesure de *prévalence*, et pas de l'incidence. 
+La durée typique de la maladie est de 5-7 jours.
+Nous pouvons tracer le plot de ces données. Il faut remarque que les cas sont définis comme sujet en isolement par jour : il s'agit donc d'une mesure de *prévalence*, et pas de l'incidence. 
 
 ````
 plot(flu$day, flu$case, type = "b", xlab = "jour", ylab = "en isolement", log = "y")
@@ -348,31 +347,30 @@ Les termes *infection* et *maladie* sont souvent utilisés comme synonymes. Néa
 * la période de latence : la période entre colonisation et moment où le sujet infecté devient contagieux (et peut transmettre l'infection) ;
 * l'incubation : la période entre la colonisation et l'apparition des symptômes.
 
-Nous connaissons la différence entre *VIH* et *SIDA*. Pour la "grippe", les périodes peuvent ne pas être simplement identifiables, à cause de la permanence des symtômes. \
+Nous connaissons la différence entre *VIH* et *SIDA*. Pour la "grippe", les périodes peuvent ne pas être simplement identifiables, à cause de la permanence des symtômes. 
 
-La séverité des maladies dépend souvent de l'âge de la personne atteinte. \
+La séverité des maladies dépend souvent de l'âge de la personne atteinte. 
 L'effet de l'âge peut avoir un impact majeur sur le *burden* de la maladie et sur la dynamique de l'infection.
 
 ### **FoI**, force de l'infection
-La force de l'infection est le taux *per capita* auquel les sujets susceptibles sont exposés à l'infection.\
+La force de l'infection est le taux *per capita* auquel les sujets susceptibles sont exposés à l'infection.
 Dans le modèle à compartiment S(E)IR, la force de 'l'infection est $\phi = \beta I/N$. 
-\
 
-$I/N$ représente la fraction des contacts que chaque sujet susceptible peut avoir avec les autres membres de la même population. $\beta$ est le taux de contacts efficaces (transmission de l'infection). \
+$I/N$ représente la fraction des contacts que chaque sujet susceptible peut avoir avec les autres membres de la même population. $\beta$ est le taux de contacts efficaces (transmission de l'infection). 
 
-*FoI* est en taux, donc dans une population sans différences d'âge (ou dans une population où l'âge "ne compte pas") et dans le cas de contacts aléatoires (*randomly mixing population*), le temps d'infection est $1/\phi$.\
-Pour une infection qui produit une immunisation permanente, dans une population constante, $R_0 \approx 1+L/\bar{a}$. \
+*FoI* est en taux, donc dans une population sans différences d'âge (ou dans une population où l'âge "ne compte pas") et dans le cas de contacts aléatoires (*randomly mixing population*), le temps d'infection est $1/\phi$.
+Pour une infection qui produit une immunisation permanente, dans une population constante, $R_0 \approx 1+L/\bar{a}$. 
 
 $L$ est l’espérance de vie du sujet atteint. La moyenne d'âge de l'infection est $\bar{a} \approx L/(R_0-1)$. [^16]
 
 [^16]: La population n'est pas fermée : $\bar{a} \approx L/(\mu(R_0-1))$, où $\mu$ est le taux de naissance. Dietz et Schenzle, 1985.
 
-Le taux auquel chaque sujet d'une population peut être infecté est $\phi(a,t)$ et dépend donc de l'âge, $a$, et du temps, $t$. La probabilité d'être infecté à un âge donné est : $p(a) = 1 - e^{-\int_{0}^{a} \phi(a)da}$. Cette formulation de la propbabilité d'infection corréspond au modèle catalytique[^17], qui, dans sa formulation plus simple (*FoI* indépendenate de l'âge et du temps) peut être écrite comme $1-exp(-\phi a)$.\
+Le taux auquel chaque sujet d'une population peut être infecté est $\phi(a,t)$ et dépend donc de l'âge, $a$, et du temps, $t$. La probabilité d'être infecté à un âge donné est : $p(a) = 1 - e^{-\int_{0}^{a} \phi(a)da}$. Cette formulation de la propbabilité d'infection corréspond au modèle catalytique[^17], qui, dans sa formulation plus simple (*FoI* indépendenate de l'âge et du temps) peut être écrite comme $1-exp(-\phi a)$.
 
 Nous pouvons estimer le *FoI* par un modèle linéaire généralisé (*glm*) si nous disposons du nombre de sujets infectés par classe d'âge. Ce modèle est codé : 
 
 ````
-glm(cbing(inf, noninf) ~ offset(log(a)), family=binomial(link="cloglog"))
+glm(cbind(inf, noninf) ~ offset(log(a)), family=binomial(link="cloglog"))
 ````
 
 [^17]: Muench 1959 et Hens 2010.
@@ -408,8 +406,8 @@ On retrouve une *FoI$ de 0.16/year, avec une moyenne d'âge prédite de 6 ans.
 
 ## Rubéole
 
-La rubéole est une maladie préentant une progression globalemtn bénigne, à l'éxception de la femme enceinte, produisant un syndrome congénita (*congenital rubella syndrome, CRS*). Le premier objectif de santé publique serait donc de réduire la *FoI* chez les femmes en âge de procréer. \
-L'importance de cet objectif a été soulignée par une épidémie de CRS en Grèce, pendant les années 1990. \
+La rubéole est une maladie préentant une progression globalemtn bénigne, à l'éxception de la femme enceinte, produisant un syndrome congénita (*congenital rubella syndrome, CRS*). Le premier objectif de santé publique serait donc de réduire la *FoI* chez les femmes en âge de procréer. 
+L'importance de cet objectif a été soulignée par une épidémie de CRS en Grèce, pendant les années 1990. 
 Nous allons utiliser les données *peru*[^19] (oui, nous ne sommes plus en Grèce !), issue du package *epimdr*. Nous aurons besoin de quelques packages de plus : 
 
 [^19]: *peru, Rubella in Peru data.*, page 28 de [epimdr](https://cran.r-project.org/web/packages/epimdr/epimdr.pdf)
@@ -452,7 +450,7 @@ x = c(0, up)
 y = exp(c(est2$par, est2$par[26]))
 plot(x, y, ylab = "FoI relative", xlab = "age", type = "l", ylim = c(0,0.25), xlim = c(0,80))
 ````
-Nous pouvons (ou nous devrons) remarquer une *FoI* élevé chez les sujets d'âge compris entre 8 et 10 ans. Ce schéma est cohérent avec la biologie de la rubéole. Le Peru a une espérance de vie de 75 ans et le $R_0$ de la rubéole est estilé dans l'interval 4-10. \
+Nous pouvons (ou nous devrons) remarquer une *FoI* élevé chez les sujets d'âge compris entre 8 et 10 ans. Ce schéma est cohérent avec la biologie de la rubéole. Le Peru a une espérance de vie de 75 ans et le $R_0$ de la rubéole est estimé dans l'interval 4-10. 
 La moyenne d'âge de l'infection peut être calculée par $\bar{a} \approx L/(R_0-1)$. Elle devrait être autour de 10 ans. 
 
 ##### Conséquences de la vaccination dans la tranche d'âge 0-45 ans
@@ -481,7 +479,7 @@ tmpfn2 = function(par, data, df){
   dl$coefficients=par
   ll = 0
   for(a in 1:length(data$age)){
-    p = ((1-exp(-integrate(spline_fn1, 0, data$age[a], dl = dl)$value)))
+    p = ((1-exp(-integrate(tmpfn, 0, data$age[a], dl = dl)$value)))
     ll = ll+dbinom(data$cumulative[a], data$n[a], p, log = T)
   }
   return(-ll)
