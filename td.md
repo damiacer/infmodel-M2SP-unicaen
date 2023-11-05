@@ -114,7 +114,7 @@ lines(c(xx, xx), c(1/R0, max(out$I)), lty = 3)
 ````
 Auquel nous pouvons ajouter le $R_E$ [^2] :
 
-[^2]: $R_E$ et **transmission** : la fréquence d'une maladie infectieuse est souvent définie par la *prévalence* (la proportion de sujets atteints par la maladie au sein d'une population, à tout temps *t*) et l'*incidence* (risque ou taux de nouveau cas per unité de temps per 1000 individus à risque ou susceptibles). Ces informations, bien que indispensables, ne nous permettent pas de définir à quel point une infection est transmissible.\ 
+[^2]: R_E et **transmission** : la fréquence d'une maladie infectieuse est souvent définie par la *prévalence* (la proportion de sujets atteints par la maladie au sein d'une population, à tout temps *t*) et l'*incidence* (risque ou taux de nouveau cas per unité de temps per 1000 individus à risque ou susceptibles). Ces informations, bien que indispensables, ne nous permettent pas de définir à quel point une infection est transmissible.\ 
 Pour définir la transmissibilité d'une infection, nous utilisons le *secondary attack rate* et le *reproduction number*, $R_0$, le nombre (moyen) de transmission efficaces par personne. La valeur de $R_0$ est élevée quand une personne contagieuse est introduite dans une population naïve. Néanmoins, la présence de l'infection au sein de notre population déterminera une diminution de la proportion des susceptibles (immunisation). Le nouveau *reproduction number* sera représenté par le $R$ effectif ou *net* : $R_E = R_0 \times s$.
 
 ````
@@ -137,7 +137,7 @@ Le modèle SIR fermé a deux situations d'équilibre :
 * ${S=1, I=0, R=0}$, instable quand $R_0 >1$, et 
 * ${S*, I*, R*}$, qui reflet l'équilibre de l'épidémie à sa fin[^3]
 
-[^3]: Où : $I*=0$ si l'épidémie est en train de s'éteindre en absence d'un recrutement efficace de sujets susceptibles ; $S*$ est la taille de la population susceptible qui échappe à l'infection et $R*$ est la taille finale de l'épidémie.
+[^3]: Où : I*=0 si l'épidémie est en train de s'éteindre en absence d'un recrutement efficace de sujets susceptibles ; $S*$ est la taille de la population susceptible qui échappe à l'infection et $R*$ est la taille finale de l'épidémie.
 
 Le package **rootSolve** [^4] cherche de trouver l'équilibre des systèmes de équations différentielles par l'intégration. Installation :  
 
