@@ -22,7 +22,7 @@ Nous définissons l'équation (la fonction gradient) du système d'équations. L
 
 * le temps, *t* 
 * *y*, un vecteur avec les valeurs des variables d'état (*S*, *I*, *R*)
-* les valeurs de paramètres ($\beta$, $\mu$, $\gamma$ et $N$), *parms*
+* les valeurs des paramètres ($\beta$, $\mu$, $\gamma$ et $N$), *parms*
 
 ```
 sirmod = function(t, y, parms){
