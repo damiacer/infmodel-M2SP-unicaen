@@ -87,13 +87,13 @@ legend("right", legend=c("S", "I", "R"),
 
 ````
 
-Nous pouvons ajouter à cette image la droite correspondante à $R_E$, le taux de reproduction effectif. Cette quantité est donnée par : \ 
+Nous pouvons ajouter à cette image la droite correspondante à $R_E$, le taux de reproduction effectif. Cette quantité est donnée par : 
 
-$R_E = R_0 s = 1$\
+$R_E = R_0 s = 1$
 
-où $s$ est la proportion des susceptibles.\
+où $s$ est la proportion des susceptibles.
 
-Si la vaccination permet de tenir la proportion susceptible en dessous du seuil de $p_c = 1-1/R_0$, la diffusion du pathogène est dissipée et il ne sera pas capable de diffuser dans la population. Il est possible d'ajouter cette information à notre graphique.\
+Si la vaccination permet de tenir la proportion susceptible en dessous du seuil de $p_c = 1-1/R_0$, la diffusion du pathogène est dissipée et il ne sera pas capable de diffuser dans la population. Il est possible d'ajouter cette information à notre graphique.
 
 On calcule $R_0$ : 
 ````
@@ -191,7 +191,7 @@ Interprétation de l'image : l'approximation est valable pour $R_0>2.5$ mais sur
 
 ***
 
-## $R_0$
+## R0
 
 Pour les maladies transmissibles directement, $R_0$ est défini comme le nombre de cas secondaires qui dérivent d'un cas *index* dans une population susceptible.\ 
 $R_0$ joue un rôle fondamental dans différents aspects de la dynamique de la maladie. Pour des pathogènes responsables d'une immunisation parfaite : 
@@ -201,7 +201,7 @@ $R_0$ joue un rôle fondamental dans différents aspects de la dynamique de la m
 
 [^6]: Lloyd-Smith, 2009
 
-### Estimation de $R_0$ pour une épidémie simple
+### Estimation de R0 pour une épidémie simple
 
 Une large variété de méthodes a été proposée pour estimes $R_0$ (ou le *effective reproductive ratio* $R_E$[^7][^8]). Certaines méthodes sont fondées exclusivement sur des modèles.\
 
@@ -275,7 +275,7 @@ V = c(1.5, 1.8)
 f = (5/7)/V # rapport entre période de contagiosité et serial interval
 R0.rugeole2 = (V * r) + 1 + (f * (1 - f)) * ((V * r)^2)
 ````
-### $R_0$ de l'épidémie A/H1N1, 1977
+### R0 de l'épidémie A/H1N1, 1977
 
 Nous utiliserons les données *flu*[^14] du package *epimdr* : 
 
