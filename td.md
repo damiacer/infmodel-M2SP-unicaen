@@ -589,8 +589,6 @@ Définition des paramètres :
 * $I$ est le vecteur dans lequel nous stockons les valeurs succesives retrouvées 
 * En effet, à chaque tour de boucle, on remplit les vecteurs Time, $S$, $I$, $R$ (mise à jour de *idx*)
 
-\
-
 La fonction *simulSIR* peut être utilisée pour simuler une fois la fonction épidémique et la représenter
 
 ````
