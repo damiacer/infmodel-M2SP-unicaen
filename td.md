@@ -157,7 +157,7 @@ round(equil$y, 3)
 ````
 
 Le résultat de runsteady (qui utilise les paramètres, *parms*, et la fonction, *sirmod*, précédemment écrite) nous permet de connaître le nombre de sujets qui échapperont à l'infection ou qui seront infectés (et *retired* du système).\
-\
+
 
 Dans notre épidémie, $\mu = 0$ (il n'y a pas de décès). Dans l'exemple, la période de contagiosité était égale à $2$ ($\gamma = 1/2$). Cela nous permet de faire varier $\beta$ afin que $R_0$ soit compris entre 0.1 et 5. Pour des $R_0$ de grandeur modérée, $f = 1-exp(-R_0)$ [^5].
 
